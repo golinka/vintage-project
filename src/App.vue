@@ -59,7 +59,7 @@
               :class="{ active: index === active }"
               @click="showTab(index)">{{ office.city }}</li>
           </ul>
-          <transition name="fade" mode="out-in">
+          <transition name="fade" mode="out-in" :duration="200">
             <div class="offices__details" :key="active">
               <div class="offices__title">{{ activeOffice.title }}</div>
               <div class="offices__address">{{ activeOffice.address }}</div>
@@ -69,13 +69,14 @@
         <div class="col-md-6 col-12 p-0">
           <GmapMap
             ref="map"
-            :zoom="7"
-            :center="{ lat: 1.38, lng: 103.80 }"
+            :zoom="11"
+            :center="activeOffice.marker"
             style="width: 100%; height: 100%;"
             v-bind:options="mapOptions">
-            <GmapMarker
-              :clickable="true"
-              :draggable="true"
+            <GmapCircle
+              :radius="800"
+              :center="activeOffice.marker"
+              :options="{ fillColor: '#3db565', strokeColor: '#3db565', fillOpacity: 1 }"
             />
           </GmapMap>
         </div>
@@ -96,29 +97,37 @@ export default {
           city: 'Kyiv',
           title: 'Global Message Services Ukraine LLC',
           address: 'Kuiv, Stepan Bandera, 33\r\n02066\r\nUkraine',
-          lat: 1.38,
-          lng: 103.80,
+          marker: {
+            lat: 50.4369587,
+            lng: 30.5215393,
+          },
         },
         {
           city: 'New York',
           title: 'Global Message Services USA LLC',
           address: 'New York, Stepan Bandera, 32\r\n02066\r\nUSA',
-          lat: 1.38,
-          lng: 103.80,
+          marker: {
+            lat: 40.6942682,
+            lng: -74.0057265,
+          },
         },
         {
           city: 'Guangzhou',
           title: 'Global Message Services China LLC',
           address: 'Guangzhou, Stepan Bandera, 31\r\n02066\r\nChina',
-          lat: 1.38,
-          lng: 103.80,
+          marker: {
+            lat: 23.1087651,
+            lng: 113.2567812,
+          },
         },
         {
           city: 'Barcelona',
           title: 'Global Message Services Spain LLC',
           address: 'Barcelona, Stepan Bandera, 30\r\n02066\r\nSpain',
-          lat: 1.38,
-          lng: 103.80,
+          marker: {
+            lat: 41.3782897,
+            lng: 2.1711896,
+          },
         },
       ],
       mapOptions: {
