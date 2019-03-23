@@ -1,2 +1,73 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap-grid';
 @import '_fonts';
+
+$base-color: #333333;
+$green-active: #3db565;
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: 'SuisseIntl Light', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 3.57em;
+  margin: 0 0 3rem;
+}
+
+h2 {
+  font-size: 2.42em;
+  margin: 0 0 3rem;
+}
+
+.section-container {
+  padding: 7.14em 4.28em;
+}
+
+.details {
+  font-family: 'SuisseIntl Light', sans-serif;
+  font-weight: 300;
+  padding-top: 4.28em;
+  color: $base-color;
+
+  a {
+    font-size: 1.85em;
+    color: $green-active;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    white-space: pre-line;
+    margin-top: 0;
+  }
+
+  &__subtitle {
+    span {
+      color: $green-active;
+    }
+  }
+
+  &__contacts {
+    p {
+      font-size: 1.1em;
+      margin-bottom: .3em;
+    }
+
+    a {
+      display: block;
+      font-family: 'SuisseIntl Semibold', sans-serif;
+      font-weight: 600;
+      font-size: 1em;
+      text-transform: uppercase;
+      margin-bottom: .45em;
+    }
+  }
+}
