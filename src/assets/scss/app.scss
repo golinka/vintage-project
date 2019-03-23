@@ -4,24 +4,33 @@
 $base-color: #333333;
 $green-active: #3db565;
 
+$offices-background: #272727;
+
 body {
   margin: 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 h1,
 h2 {
   font-family: 'SuisseIntl Light', sans-serif;
   font-weight: 300;
+  margin: 0 0 1em;
 }
 
 h1 {
   font-size: 3.57em;
-  margin: 0 0 3rem;
 }
 
 h2 {
   font-size: 2.42em;
-  margin: 0 0 3rem;
 }
 
 .section-container {
@@ -44,9 +53,14 @@ h2 {
     }
   }
 
-  p {
-    white-space: pre-line;
+  p, pre {
+    line-height: 1.5;
     margin-top: 0;
+  }
+
+  pre {
+    font-family: 'SuisseIntl Light', sans-serif;
+    white-space: pre-line;
   }
 
   &__subtitle {
@@ -69,5 +83,56 @@ h2 {
       text-transform: uppercase;
       margin-bottom: .45em;
     }
+  }
+}
+
+.offices {
+  color: white;
+  background: url('../images/offices-background.png');
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7.14em 0 7.14em 4.28em;
+  }
+
+  &__links {
+    display: flex;
+
+    li {
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'SuisseIntl Semibold', sans-serif;
+      font-size: .8em;
+      letter-spacing: .1em;
+      transition: color .3s ease;
+
+      &:hover,
+      &.active {
+        color: $green-active;
+      }
+      
+      &:not(:last-child) {
+        margin-right: 2.5em;
+      }
+    }
+  }
+
+  &__details {
+    font-family: 'SuisseIntl Light', sans-serif;
+    font-weight: 300;
+    margin-top: 3em;
+    line-height: 1.5;
+  }
+
+  &__title {
+    font-size: 1.6em;
+    margin-bottom: 2em;
+  }
+
+  &__address {
+    font-size: .8em;
+    white-space: pre;
   }
 }

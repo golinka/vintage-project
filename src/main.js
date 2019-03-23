@@ -1,8 +1,15 @@
 import Vue from 'vue';
+import * as VueGoogleMaps from 'vue2-google-maps';
 import App from './App.vue';
 
 import './assets/scss/app.scss';
 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyBzwLvvBZF16oxLnoThjQgOqhVd2jHLWpg',
+    libraries: 'places',
+  },
+});
 Vue.config.productionTip = false;
 
 new Vue({
