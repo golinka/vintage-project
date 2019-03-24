@@ -124,6 +124,7 @@
                 v-if="validationError('checkbox')"
                 class="error-text mt-2">{{ validationError('checkbox') }}</small>
             </label>
+            <div v-if="success" class="success-text mb-4">Successfully sent!</div>
             <button
               :disabled="disableButton"
               class="btn"
@@ -197,6 +198,7 @@ export default {
         email: '',
       },
       submitting: false,
+      success: false,
     };
   },
   computed: {
@@ -220,6 +222,12 @@ export default {
     scrollTo(to) {
       window.scrollTo(0, this.$refs[to].offsetTop);
     },
+    successMessage() {
+      this.success = true;
+      setTimeout(() => {
+        this.success = false;
+      }, 2000);
+    },
     async submit() {
       if (await this.$validator.validate()) {
         this.submitting = true;
@@ -233,6 +241,7 @@ export default {
         });
         const { data } = await response.json();
         console.log(data);
+        this.successMessage();
         this.submitting = false;
       }
     },

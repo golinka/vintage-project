@@ -70,6 +70,16 @@ $error-color: #c93232;
   font-size: 1em;
 }
 
+.success-text {
+  font-family: 'SuisseIntl Light', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  background-color: #02c888;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
 .checkbox {
   display: block;
   position: relative;

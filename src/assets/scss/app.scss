@@ -1,11 +1,10 @@
+$base-color: #333333;
+$green-active: #3db565;
+$offices-background: #272727;
+
 @import '../../../node_modules/bootstrap/scss/bootstrap-grid';
 @import '_fonts';
 @import '_forms';
-
-$base-color: #333333;
-$green-active: #3db565;
-
-$offices-background: #272727;
 
 html {
   scroll-behavior: smooth;
