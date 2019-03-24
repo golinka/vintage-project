@@ -12,15 +12,15 @@
             <span>GMS</span> Headquarters
           </h2>
           <div class="row">
-            <div class="col-sm-6 col-12">
-              <pre class="mb-5">Global Message Services Ukraine LLC
+            <div class="col-lg-6 col-12 mb-4">
+              <pre class="mb-3 mb-lg-5">Global Message Services Ukraine LLC
                 Bundesstrasse 5 | 3rd Floor
                 6300 Zug
                 Switzerland
               </pre>
               <a href="tel:+41415446200">+41 41 544 62 00</a>
             </div>
-            <div class="details__contacts col-sm-6 col-12">
+            <div class="details__contacts col-lg-6 col-12">
               <p>Email</p>
               <a href="mailto:info@gms-worldwide.com">info@gms-worldwide.com</a>
               <p>Send message</p>
@@ -30,13 +30,13 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-12">
+        <div class="col-sm-6 col-12 mt-5 mt-sm-0">
           <h2 class="details__subtitle">
             Technical support <span>24/7</span>
           </h2>
           <div class="row">
             <div class="col-12">
-              <p class="mb-5">
+              <p class="mb-3 mb-lg-5">
                 GMS understands that it can be hard to follow all new technologies.
                 We regularly provide for all our clients educational trainings
                 to make your operator`s business earn more and better though our
@@ -71,7 +71,6 @@
             ref="map"
             :zoom="11"
             :center="activeOffice.marker"
-            style="width: 100%; height: 100%;"
             v-bind:options="mapOptions">
             <GmapCircle
               :radius="800"
@@ -88,8 +87,14 @@
           <h2>Contact Us</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-12 pr-5">
+      <div class="row flex-sm-row-reverse">
+        <div class="contact__paragraph col-md-6 col-12">
+          <p>
+            Please tell us more about your request and give us
+            info about your company and country
+          </p>
+        </div>
+        <div class="col-md-6 col-12 pr-sm-5 pr-3">
           <form @submit.prevent="submit">
             <InputGroup
               :rules="'required|alpha'"
@@ -106,7 +111,7 @@
               :name="'email'"
               @valueChanged="valueChanged"
               :value="form.email"/>
-            <label class="checkbox mt-4 mb-5">
+            <label class="checkbox mt-sm-4 mb-sm-5 mt-3 mb-3">
               I agree the processing of personal data
               <input
                 v-validate="'required'"
@@ -124,12 +129,6 @@
               class="btn"
               type="submit">Get in touch</button>
           </form>
-        </div>
-        <div class="contact__paragraph col-md-6 col-12 pr-5">
-          <p>
-            Please tell us more about your request and give us
-            info about your company and country
-          </p>
         </div>
       </div>
     </section>

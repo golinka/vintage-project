@@ -156,6 +156,12 @@ h2 {
   }
 }
 
+.vue-map-container {
+  width: 100%;
+  height: 100%;
+  min-height: 30vh;
+}
+
 @media all and (max-width: 1200px) {
   main {
     font-size: 13px;
@@ -165,5 +171,41 @@ h2 {
 @media all and (max-width: 992px) {
   main {
     font-size: 12px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .section-container {
+    padding: 4em 2em;
+  }
+
+  .offices {
+    &__block {
+      padding: 4em 2em;
+    }
+
+    &__links {
+      li:not(:last-child) {
+        margin-right: 1.5em;
+      }
+    }
+
+    &__details {
+      margin-top: 1.5em;
+    }
+
+    &__title {
+      margin-bottom: 1em;
+    }
   }
 }
