@@ -223,7 +223,7 @@ export default {
     async submit() {
       if (await this.$validator.validate()) {
         this.submitting = true;
-        const response = await fetch('http://httpbin.org/post', {
+        const response = await fetch('https://httpbin.org/post', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
