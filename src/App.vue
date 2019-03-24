@@ -82,11 +82,63 @@
         </div>
       </div>
     </section>
+    <section class="contact section-container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Contact Us</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-12 pr-5">
+          <form @submit.prevent="submit">
+            <InputGroup
+              :rules="'required|alpha'"
+              :name="'name'"
+              @valueChanged="valueChanged"
+              :value="form.name"/>
+            <InputGroup
+              :rules="'required|digits:10'"
+              :name="'phone'"
+              @valueChanged="valueChanged"
+              :value="form.phone"/>
+            <InputGroup
+              :rules="'required|email'"
+              :name="'email'"
+              @valueChanged="valueChanged"
+              :value="form.email"/>
+            <label class="checkbox mt-4 mb-5">
+              I agree the processing of personal data
+              <input
+                v-validate="'required'"
+                class="checkbox__input"
+                name="checkbox"
+                type="checkbox"
+                checked="checked">
+              <span class="checkbox__checkmark"></span>
+              <small
+                v-if="validationError('checkbox')"
+                class="error-text mt-2">{{ validationError('checkbox') }}</small>
+            </label>
+            <button
+              :disabled="disableButton"
+              class="btn"
+              type="submit">Get in touch</button>
+          </form>
+        </div>
+        <div class="contact__paragraph col-md-6 col-12 pr-5">
+          <p>
+            Please tell us more about your request and give us
+            info about your company and country
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </template>
 
 <script>
 import MapStyles from './googleMapStyle.json';
+import InputGroup from './components/InputGroup.vue';
 
 export default {
   data() {
@@ -140,17 +192,51 @@ export default {
         disableDefaultUi: false,
         styles: MapStyles,
       },
+      form: {
+        name: '',
+        phone: '',
+        email: '',
+      },
+      submitting: false,
     };
   },
   computed: {
     activeOffice() {
       return this.offices[this.active];
     },
+    validationError() {
+      return field => this.$validator.errors.first(field);
+    },
+    disableButton() {
+      return !!this.errors.all().length || this.submitting;
+    },
   },
   methods: {
     showTab(index) {
       this.active = index;
     },
+    valueChanged({ name, value }) {
+      this.form[name] = value;
+    },
+    async submit() {
+      if (await this.$validator.validate()) {
+        this.submitting = true;
+        const response = await fetch('http://httpbin.org/post', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(this.form),
+        });
+        const { data } = await response.json();
+        console.log(data);
+        this.submitting = false;
+      }
+    },
+  },
+  components: {
+    InputGroup,
   },
 };
 </script>

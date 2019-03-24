@@ -1,0 +1,171 @@
+$error-color: #c93232;
+
+.input-group {
+  font-family: 'SuisseIntl Light', sans-serif;
+  font-weight: 300;
+
+  &__wrapper {
+    height: 3.9em;
+    border-bottom: 1px solid #040707;
+    position: relative;
+    display: flex;
+    margin-bottom: .5em;
+    transition: border .3s ease;
+  }
+
+  label {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+  }
+
+  label,
+  input {
+    color: black;
+    font-size: 1.3em;
+    transition: color .3s ease;
+  }
+
+  input {
+    display: block;
+    flex-grow: 1;
+    padding-left: 7.15em;
+    margin: 0 -.5em;
+    border: none;
+    background-color: transparent;
+    font-family: 'SuisseIntl Light', sans-serif;
+    font-weight: 300;
+  }
+
+  &:focus-within {
+    .input-group {
+      &__wrapper {
+        border-bottom: 1px solid white;
+      }
+    }
+
+    label,
+    input {
+      color: white;
+    }
+  }
+
+  &.invalid {
+    .input-group {
+      &__wrapper {
+        border-bottom-color: $error-color;
+
+        label {
+          color: $error-color;
+        }
+      }
+    }
+  }
+}
+
+.error-text {
+  display: block;
+  color: $error-color;
+  font-size: 1em;
+}
+
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 2em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: 'SuisseIntl Light', sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  transition: color .3s ease;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:focus {
+      & ~ .checkbox__checkmark {
+        outline: -webkit-focus-ring-color auto 5px;
+        outline-offset: -2px;
+      }
+    }
+
+    &:checked {
+      & ~ .checkbox__checkmark {
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: .1em;
+    left: 0;
+    height: 1em;
+    width: 1em;
+    background-color: white;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: .35em;
+      top: .2em;
+      width: .3em;
+      height: .5em;
+      border: solid #1f1f1f;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  &:hover {
+    color: white;
+
+    .checkbox {
+      &__input ~ &__checkmark {
+        background-color: #ccc;
+      }
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  width: 100%;
+  max-width: 20em;
+  height: 6em;
+  font-size: .8em;
+  font-family: 'SuisseIntl Semibold', sans-serif;
+  border: none;
+  background-color: #262626;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: #363636;
+  }
+
+  &[disabled] {
+    cursor: default;
+    opacity: .8;
+
+    &:hover {
+      background-color: #262626;
+    }
+  }
+}

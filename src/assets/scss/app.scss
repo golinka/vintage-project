@@ -1,5 +1,6 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap-grid';
 @import '_fonts';
+@import '_forms';
 
 $base-color: #333333;
 $green-active: #3db565;
@@ -134,5 +135,19 @@ h2 {
   &__address {
     font-size: .8em;
     white-space: pre;
+  }
+}
+
+.contact {
+  background: url('../images/contact-background.png');
+  background-size: cover;
+
+  &__paragraph {
+    p {
+      font-family: 'SuisseIntl Light', sans-serif;
+      font-weight: 300;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
   }
 }
