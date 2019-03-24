@@ -7,6 +7,10 @@ $green-active: #3db565;
 
 $offices-background: #272727;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
 }
@@ -149,5 +153,17 @@ h2 {
       font-size: 1.1em;
       line-height: 1.5;
     }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  main {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 992px) {
+  main {
+    font-size: 12px;
   }
 }

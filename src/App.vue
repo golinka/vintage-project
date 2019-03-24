@@ -25,8 +25,8 @@
               <a href="mailto:info@gms-worldwide.com">info@gms-worldwide.com</a>
               <p>Send message</p>
               <a href="viber://add?number=%2B41415446200">VIBER US</a>
-              <p>Email</p>
-              <a href="mailto:info@gms-worldwide.com">info@gms-worldwide.com</a>
+              <p>Send form</p>
+              <a href="#contactus" @click.prevent="scrollTo('contactus')">Contact Us</a>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
         </div>
       </div>
     </section>
-    <section class="contact section-container">
+    <section class="contact section-container" ref="contactus">
       <div class="row">
         <div class="col-12">
           <h2>Contact Us</h2>
@@ -217,6 +217,9 @@ export default {
     },
     valueChanged({ name, value }) {
       this.form[name] = value;
+    },
+    scrollTo(to) {
+      window.scrollTo(0, this.$refs[to].offsetTop);
     },
     async submit() {
       if (await this.$validator.validate()) {
